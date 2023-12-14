@@ -1,12 +1,9 @@
-import os
+'''Файл конфигурации бота и базы данных'''
 
+import os
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
 from dotenv import load_dotenv
 from aiogram import Bot, Dispatcher
-from aiogram import types, executor
-from aiogram.dispatcher import FSMContext
-from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
-from aiogram.dispatcher.filters import Text
 import psycopg2
 
 load_dotenv()
@@ -28,3 +25,11 @@ connection = psycopg2.connect(
                             password=password,
                             port=port
                             )
+
+#P.S. используйте свои значения для конфигураций если хотите запустить программу(database - Название бд
+#                                                                               token - токен вашего бота
+#                                                                               host - host database
+#                                                                               user - пользователь бд
+#                                                                               password - пароль от вашей бд
+#                                                                               port - порт бд(по умолчанию - 5432)
+#                                                                                )
