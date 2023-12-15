@@ -1,5 +1,5 @@
 from config import connection
-from typing import Dict, List
+from typing import Dict
 
 
 class DBManagerHelper:
@@ -12,9 +12,9 @@ class DBManagerHelper:
         dict_ = {}
 
         self.cursor.execute('SELECT customer_id FROM customers WHERE customer_id_hh = (%s)', [id])
-        customer_id = self.cursor.fetchall()[0][0]
+        customer_id: int = self.cursor.fetchall()[0][0]
         self.cursor.execute('SELECT customer_id FROM vacancies WHERE customer_id = %s', ([customer_id]))
-        if len(self.cursor.fetchall()) > 0: # не позволяет заполнять уже существующие вакансии повторно
+        if len(self.cursor.fetchall()) > 0:  # не позволяет заполнять уже существующие вакансии повторно
             print('Такое уже существует')
         else:
             for item in data['items']:

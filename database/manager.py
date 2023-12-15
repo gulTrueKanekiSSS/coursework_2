@@ -1,7 +1,4 @@
-from pprint import pprint
 from typing import List, Dict
-
-import psycopg2
 from config import connection
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 import requests
