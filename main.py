@@ -60,6 +60,8 @@ async def get_info_vacancie(message: types.Message, state=FSMContext):
 
 if __name__ == '__main__':
     test = DBManager()
+    test.create_customers_table()
+    test.create_vacancie_table()
     # print(test.get_companies_and_vacancies_count())
     # print(test.get_all_vacancies())
     # print(test.get_avg_salary())

@@ -11,9 +11,12 @@ class DBManager:
 
     def create_vacancie_table(self):
         self.cursor.execute('CREATE TABLE IF NOT EXISTS vacancies(vacancie_id SERIAL PRIMARY KEY, customer_id INTEGER REFERENCES customers(customer_id), url varchar(255), payment INTEGER, requirements text, vacancie_name varchar(255))')
+        connection.commit()
 
     def create_customers_table(self):
-        self.cursor.execute('CREATE TABLE customers(customer_id serial PRIMARY KEY, customer_name varchar(255), customer_id_hh integer)')
+        self.cursor.execute('CREATE TABLE IF NOT EXISTS customers(customer_id serial PRIMARY KEY, customer_name varchar(255), customer_id_hh integer)')
+        connection.commit()
+
     def get_companies_and_vacancies_count(self) -> List:
         self.cursor.execute('SELECT customers.customer_name, COUNT(vacancies.vacancie_id) as amount FROM customers LEFT JOIN vacancies ON customers.customer_id = vacancies.customer_id GROUP BY customers.customer_name;')
         return self.cursor.fetchall()
