@@ -84,7 +84,6 @@ class DBManager:
 
         self.cursor.execute("SELECT customer_name FROM customers")
         custs = self.cursor.fetchall() # Имена работодателей в формате Список[кортеж(имя), кортеж(имя)]
-
         for i in range(amount_iterations):
             keyboard_.add(str(custs[i][0]))
 

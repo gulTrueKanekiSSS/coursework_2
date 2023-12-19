@@ -13,7 +13,7 @@ host = os.getenv('HOST')
 user = os.getenv('USER_DB')
 password = os.getenv('PASSWORD')
 port = os.getenv('PORT')
-
+OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 
 bot = Bot(token=token)
 dp = Dispatcher(bot, storage=MemoryStorage())
